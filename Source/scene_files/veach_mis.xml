@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<scene>
+	<camera>
+		<target>0 -1.5 2.5</target>
+		<eye>0 6 27.5</eye>
+		<worldUp>0 1 0</worldUp>
+		<fov>25</fov>
+		<width>768</width>
+		<height>512</height>
+	</camera>
+
+	<geometry type="square" name="Floor">
+		<transform>
+			<translate>0 -5 0</translate>
+			<rotate>-90 0 0</rotate>
+			<scale>30 30 1</scale>
+		</transform>
+		<material>white_diffuse</material>
+	</geometry>
+
+	<geometry type="square" name="Glossy_Plane_exp2">
+		<transform>
+			<translate>0 -3.9 3.55</translate>
+			<rotate>-80 0 0</rotate>
+			<scale>8 1 1</scale>
+		</transform>
+		<material>Blinn_Exp2</material>
+	</geometry>
+
+	<geometry type="square" name="Glossy_Plane_exp20">
+		<transform>
+			<translate>0 -3.584 2.231</translate>
+			<rotate>-73 0 0</rotate> 
+			<scale>8 1 1</scale>
+		</transform>
+		<material>Blinn_Exp20</material>
+	</geometry>
+
+	<geometry type="square" name="Glossy_Plane_exp50">
+		<transform>
+			<translate>0 -3.062 0.921</translate>
+			<rotate>-63 0 0</rotate>
+			<scale>8 1 1</scale>
+		</transform>
+		<material>Blinn_Exp50</material>
+	</geometry>
+
+	<geometry type="square" name="Mirrored_Plane">
+		<transform>
+			<translate>0 -2.395 -0.135</translate>
+			<rotate>-51.5 0 0</rotate>
+			<scale>8 1 1</scale>
+		</transform>
+		<material>SpecularReflective_Material</material>
+	</geometry>
+
+	<geometry type="sphere" name="Light1">
+		<transform>
+			<translate>-3.75 0 0 </translate>
+			<scale>0.067 0.067 0.067</scale>
+		</transform>
+		<material>emissive_material</material>
+	</geometry>
+
+	<geometry type="sphere" name="Light2">
+		<transform>
+			<translate>-1.25 0 0 </translate>
+			<scale>0.2 0.2 0.2</scale>
+		</transform>
+		<material>emissive_material</material>
+	</geometry>
+
+	<geometry type="sphere" name="Light3">
+		<transform>
+			<translate>1.25 0 0 </translate>
+			<scale>0.6 0.6 0.6</scale>
+		</transform>
+		<material>emissive_material</material>
+	</geometry>
+
+	<geometry type="sphere" name="Light4">
+		<transform>
+			<translate>3.75 0 0 </translate>
+			<scale>1.8 1.8 1.8</scale>
+		</transform>
+		<material>emissive_material</material>
+	</geometry>
+
+	<material type="default" name="white_diffuse">
+		<baseColor>1 1 1</baseColor>
+		<bxdf>lambert1</bxdf>
+	</material>
+
+	<material type="default" name="SpecularReflective_Material">
+		<baseColor>0.25 0.25 1</baseColor>
+		<bxdf>specular1</bxdf>
+	</material>
+
+	<material type="weighted" name="plastic_material">
+		<baseColor>1 1 1</baseColor>
+		<bxdf>lambert1</bxdf><weight>0.5</weight>
+		<bxdf>blinn1</bxdf><weight>0.5</weight>
+	</material>
+
+	<material type="default" name="Blinn_Exp2">
+		<baseColor>1 0.25 0.25</baseColor>
+		<bxdf>blinn4</bxdf>
+	</material>
+
+	<material type="default" name="Blinn_Exp10">
+		<baseColor>1 1 0.25</baseColor>
+		<bxdf>blinn3</bxdf>
+	</material>
+
+	<material type="default" name="Blinn_Exp20">
+		<baseColor>1 1 0.25</baseColor>
+		<bxdf>blinn2</bxdf>
+	</material>
+
+	<material type="default" name="Blinn_Exp50">
+		<baseColor>0.25 1 0.25</baseColor>
+		<bxdf>blinn1</bxdf>
+	</material>
+
+	<material type="light" name="emissive_material" intensity="10">
+		<baseColor>1 1 1</baseColor>
+	</material>
+
+	<bxdf type="lambert" name="lambert1" diffuseColor="1 1 1">
+	</bxdf>
+
+	<bxdf type="specularReflection" name="specular1" specularColor="1 1 1">
+	</bxdf>
+
+	<bxdf type="blinnMicrofacet" name="blinn1" diffuseColor="1 1 1" exponent="50">
+	</bxdf>
+
+	<bxdf type="blinnMicrofacet" name="blinn2" diffuseColor="1 1 1" exponent="20">
+	</bxdf>
+
+	<bxdf type="blinnMicrofacet" name="blinn3" diffuseColor="1 1 1" exponent="10">
+	</bxdf>
+
+	<bxdf type="blinnMicrofacet" name="blinn4" diffuseColor="1 1 1" exponent="2">
+	</bxdf>
+
+	<integrator type="raytrace">
+		<maxDepth>5</maxDepth>
+	</integrator>
+
+	<pixelSampleLength>10</pixelSampleLength>
+
+</scene>
